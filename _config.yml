@@ -7,9 +7,9 @@ description: >-
 
 lang: ko-KR
 timezone: Asia/Seoul
-repo: https://github.com/thehue # site repo [optional]
+repo: https://github.com/thehue/thehue.github.io # site repo [optional]
 data-theme: light # default theme "dark" | "light"
-discus-identifier: hue # replace with your disqus shortname
+discus-identifier: heyhue # replace with your disqus shortname
 
 author:
   name: thehue
@@ -29,8 +29,8 @@ baseurl: '/blog' # sub folder for jekyll site. only if jekyll site not in root o
 permalink: pretty
 
 # local
-# url: "http://localhost:4000"
-# baseurl: "/blog"
+# url: "http://localhost:4000" #
+# baseurl: "/blog" #
 
 markdown: kramdown
 kramdown:
