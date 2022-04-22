@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>thehue</title>
- <link href="http://localhost:4000/blog/atom.xml" rel="self"/>
- <link href="http://localhost:4000/blog/"/>
- <updated>2022-04-22T23:23:21+09:00</updated>
- <id>http://localhost:4000</id>
+ <link href="https://thehue.github.io/blog/atom.xml" rel="self"/>
+ <link href="https://thehue.github.io/blog/"/>
+ <updated>2022-04-22T23:26:47+09:00</updated>
+ <id>https://thehue.github.io</id>
  <author>
    <name>thehue</name>
    <email>gouk32@naver.com</email>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>노개북 - 클린코드 시작</title>
-   <link href="http://localhost:4000/blog/2022/04/22/%EB%85%B8%EA%B0%9C%EB%B6%81-%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C-%EC%8B%9C%EC%9E%91"/>
+   <link href="https://thehue.github.io/blog/2022/04/22/%EB%85%B8%EA%B0%9C%EB%B6%81-%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C-%EC%8B%9C%EC%9E%91"/>
    <updated>2022-04-22T00:00:00+09:00</updated>
-   <id>http://localhost:4000/2022/04/22/노개북 - 클린코드 시작</id>
+   <id>https://thehue.github.io/2022/04/22/노개북 - 클린코드 시작</id>
    <content type="html">&lt;h4 id=&quot;첫번째-과제---책-구매-인증&quot;&gt;첫번째 과제 - 책 구매 인증&lt;/h4&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/45552388/164722540-7c204312-0f29-4c2c-80a4-cc9e9fd8cdf5.jpeg&quot; alt=&quot;클린코드_인증&quot; /&gt; &lt;em&gt;Photo by thehue&lt;/em&gt;&lt;/p&gt;

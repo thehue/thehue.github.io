@@ -1,11 +1,11 @@
 {
     "version": "https://jsonfeed.org/version/1",
     "title": "thehue",
-    "home_page_url": "http://localhost:4000/blog/",
-    "feed_url": "http://localhost:4000/blog/feed.json",
+    "home_page_url": "https://thehue.github.io/blog/",
+    "feed_url": "https://thehue.github.io/blog/feed.json",
     "description": "Front-end Developer thehue's blog. ",
-    "icon": "http://localhost:4000/blog/apple-touch-icon.png",
-    "favicon": "http://localhost:4000/blog/favicon.ico",
+    "icon": "https://thehue.github.io/blog/apple-touch-icon.png",
+    "favicon": "https://thehue.github.io/blog/favicon.ico",
     "expired": false,
     
     "author":  {
@@ -17,12 +17,12 @@
 "items": [
     
         {
-            "id": "http://localhost:4000/blog/2022/04/22/%EB%85%B8%EA%B0%9C%EB%B6%81-%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C-%EC%8B%9C%EC%9E%91",
+            "id": "https://thehue.github.io/blog/2022/04/22/%EB%85%B8%EA%B0%9C%EB%B6%81-%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C-%EC%8B%9C%EC%9E%91",
             "title": "노개북 - 클린코드 시작",
             "summary": "노마드 개발자 북클럽 소개 및 책 구매 인증",
             "content_text": "첫번째 과제 - 책 구매 인증 Photo by thehue클린코드 책 구매 인증합니다!노마드 개발자 북클럽에 가입하게 되었습니다. 개발자의 필독서인 클린코드라는 책을 3주동안 읽고 TIL을 공유하는 학습 프로그램입니다. 최근에 굉장히 읽기 힘든 코드를 유지 보수한적이 있는데, 코드를 수정하면서 기존 코드가 굉장히 잘못 짜여있다는건 알겠는데 어떤 방향으로 수정해야 옳은 것인지에 대해 오랫동안 고민한 적이 있습니다. 클린코드 책이 저에게 좋은 가이드라인이 되길 바랍니다.북클럽을 통해 얻고 싶은 것  글 쓰기 실력  꾸준히 무언가를 하는 습관  공부한 것을 정리하는 습관",
             "content_html": "<h4 id=\"첫번째-과제---책-구매-인증\">첫번째 과제 - 책 구매 인증</h4><p><img src=\"https://user-images.githubusercontent.com/45552388/164722540-7c204312-0f29-4c2c-80a4-cc9e9fd8cdf5.jpeg\" alt=\"클린코드_인증\" /> <em>Photo by thehue</em></p><p>클린코드 책 구매 인증합니다!</p><p>노마드 개발자 북클럽에 가입하게 되었습니다. 개발자의 필독서인 <code class=\"language-plaintext highlighter-rouge\">클린코드</code>라는 책을 3주동안 읽고 TIL을 공유하는 학습 프로그램입니다.<br /> 최근에 굉장히 읽기 힘든 코드를 유지 보수한적이 있는데, 코드를 수정하면서 기존 코드가 굉장히 잘못 짜여있다는건 알겠는데 어떤 방향으로 수정해야 옳은 것인지에 대해 오랫동안 고민한 적이 있습니다. 클린코드 책이 저에게 좋은 가이드라인이 되길 바랍니다.</p><h4 id=\"북클럽을-통해-얻고-싶은-것\">북클럽을 통해 얻고 싶은 것</h4><ul>  <li>글 쓰기 실력</li>  <li>꾸준히 무언가를 하는 습관</li>  <li>공부한 것을 정리하는 습관</li></ul>",
-            "url": "http://localhost:4000/blog/2022/04/22/%EB%85%B8%EA%B0%9C%EB%B6%81-%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C-%EC%8B%9C%EC%9E%91",
+            "url": "https://thehue.github.io/blog/2022/04/22/%EB%85%B8%EA%B0%9C%EB%B6%81-%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C-%EC%8B%9C%EC%9E%91",
             
             
             
