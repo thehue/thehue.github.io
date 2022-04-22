@@ -2,9 +2,9 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>thehue</title>
- <link href="https://thehue.github.io/blog/atom.xml" rel="self"/>
- <link href="https://thehue.github.io/blog/"/>
- <updated>2022-04-22T23:41:07+09:00</updated>
+ <link href="https://thehue.github.io/atom.xml" rel="self"/>
+ <link href="https://thehue.github.io/"/>
+ <updated>2022-04-22T23:46:33+09:00</updated>
  <id>https://thehue.github.io</id>
  <author>
    <name>thehue</name>
@@ -14,7 +14,7 @@
  
  <entry>
    <title>노개북 - 클린코드 시작</title>
-   <link href="https://thehue.github.io/blog/2022/04/22/%EB%85%B8%EA%B0%9C%EB%B6%81-%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C-%EC%8B%9C%EC%9E%91"/>
+   <link href="https://thehue.github.io/2022/04/22/%EB%85%B8%EA%B0%9C%EB%B6%81-%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C-%EC%8B%9C%EC%9E%91"/>
    <updated>2022-04-22T00:00:00+09:00</updated>
    <id>https://thehue.github.io/2022/04/22/노개북 - 클린코드 시작</id>
    <content type="html">&lt;h4 id=&quot;첫번째-과제---책-구매-인증&quot;&gt;첫번째 과제 - 책 구매 인증&lt;/h4&gt;
