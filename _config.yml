@@ -13,7 +13,7 @@ discus-identifier: hue # replace with your disqus shortname
 
 author:
   name: thehue
-  bio: Front-end Developer thehue's blog. 
+  bio: Front-end Developer thehue's blog.
   userpicture:
   username: # general username
   github: # github username
@@ -29,8 +29,8 @@ baseurl: '/blog' # sub folder for jekyll site. only if jekyll site not in root o
 permalink: pretty
 
 # local
-url: "http://localhost:4000" 
-baseurl: "/blog" 
+# url: "http://localhost:4000"
+# baseurl: "/blog"
 
 markdown: kramdown
 kramdown:
