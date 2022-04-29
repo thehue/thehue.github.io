@@ -4,13 +4,127 @@
  <title>thehue</title>
  <link href="https://thehue.github.io/atom.xml" rel="self"/>
  <link href="https://thehue.github.io/"/>
- <updated>2022-04-22T23:46:33+09:00</updated>
+ <updated>2022-04-29T20:35:59+09:00</updated>
  <id>https://thehue.github.io</id>
  <author>
    <name>thehue</name>
    <email>gouk32@naver.com</email>
  </author>
 
+ 
+ <entry>
+   <title>TIL 클린코드 - 4장. 주석</title>
+   <link href="https://thehue.github.io/2022/04/29/til-%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C-4%EC%9E%A5-%EC%A3%BC%EC%84%9D"/>
+   <updated>2022-04-29T00:00:00+09:00</updated>
+   <id>https://thehue.github.io/2022/04/29/TIL 클린코드 - 4장.주석</id>
+   <content type="html">&lt;h1 id=&quot;til-클린코드---4장-주석&quot;&gt;TIL 클린코드 - 4장. 주석&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;TIL (Today I Learned)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;2022.04.29&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;오늘 읽은 범위&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;4장. 주석&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;책에서 기억하고 싶은 내용을 써보세요.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;주석은 언제나 실패를 의미한다. 때때로 주석 없이는 자신을 표현할 방법을 찾지 못해 할 수 없이 주석을 사용한다. 코드로 의도를 표현할 방법은 없을까?(p.68)&lt;/li&gt;
+  &lt;li&gt;표현력이 풍부하고 깔끔하며 주석이 거의 없는 코드가, 복잡하고 어수선하며 주석이 많이 달린 코드보다 훨신 좋다. 자신이 저지른 난장판을 주석으로 설명하려 애쓰는 대신에 그 난장판을 깨끗이 치우는 데 시간을 보내라!(p.69)&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;다음 코드 예제 두 개를 살펴보자. 어느 쪽이 더 나은가? (p.70)&lt;/p&gt;
+
+    &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 직원에게 복지 혜택을 받을 자격이 있는지 검사한다.&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;employee&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;flags&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;HOURLY_FLAG&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;employee&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;age&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;65&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;다음 코드는 어떤가?&lt;/p&gt;
+
+    &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;employee&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;isEligibleForFullBenefits&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;법적인 주석 - 각 소스 파일 첫머리에 주석으로 들어가는 저작권 정보와 소유권 정보는 필요하고도 타당하다. (p.70)&lt;/li&gt;
+  &lt;li&gt;정보를 제공하는 주석 - 함수 이름에 정보를 담는 편이 좋다.&lt;/li&gt;
+  &lt;li&gt;의도를 설명하는 주석 - 때때로 주석은 구현을 이해하게 도와주는 선을 넘어 결정에 깔린 의도까지 설명한다.&lt;/li&gt;
+  &lt;li&gt;의미를 명료하게 밝히는 주석 - 일반적으로는 인수나 반환값 자체를 명확하게 만들면 더 좋겠지만, 인수나 반환값이 표준 라이브러리나 변경하지 못하는 코드에 속한다면 의미를 명료하게 밝히는 주석이 유용하다.&lt;/li&gt;
+  &lt;li&gt;결과를 경고하는 주석 - ex) 특정 테스트 케이스를 꺼야 하는 이유를 설명하는 주석&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 여유 시간이 충분하지 않다면 실행하지 마십시오.&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;_testWithReallyBigFile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;writeLinesToFile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SimpleDateFormat&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;makeStandardHttpDateFormat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;c1&quot;&gt;// SimpleDateFormat은 스레드에 안전하지 못하다.&lt;/span&gt;
+	&lt;span class=&quot;c1&quot;&gt;// 따라서 각 인스턴스를 독립적으로 생성해야 한다.&lt;/span&gt;
+	&lt;span class=&quot;nc&quot;&gt;SimpleDateFormat&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SimpleDateFormat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;EEE, dd MMM yyyy HH:mm:ss z&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setTimeZone&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;TimeZone&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getTimeZone&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;GMT&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;TODO 주석 - ‘앞으로 할 일’을 // TODO 주석으로 남겨두면 편하다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// TODO-MdM 현재 필요하지 않다.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// 체크아웃 모델을 도입하면 함수가 필요 없다.&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;VersionInfo&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;makeVersion&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Exception&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;중요성을 강조하는 주석&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;listItemContent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;group&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;trim&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// 여기서 trim은 정말 중요하다. trim 함수는 문자열에서 시작 공백을 제거한다.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// 문자열에 시작 공백이 있으면 다른 문자열로 인식되기 때문이다.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;주절거리는 주석 - 특별한 이유 없이 의무감으로 혹은 프로세스에서 하라고 하니까 마지못해 주석을 단다면 전적으로 시간낭비다. 주석을 달기로 결정했다면 충분한 시간을 들여 최고의 주석을 달도록 한다.&lt;/li&gt;
+  &lt;li&gt;의무적으로 다는 주석 - 모든 함수에 Javadocs를 달거나 모든 변수에 주석을 달아야 한다는 규칙은 어리석기 그지없다.&lt;/li&gt;
+  &lt;li&gt;함수나 변수로 표현할 수 있다면 주석을 달지 마라&lt;/li&gt;
+  &lt;li&gt;닫는 괄호에 다는 주석 - 닫는 괄호에 주석을 달아야겠다는 생각이 든다면 대신에 함수를 줄이려 시도하자.&lt;/li&gt;
+  &lt;li&gt;공로를 돌리거나 저자를 표시하는 주석 - 소스 코드 관리 시스템은 누가 언제 무엇을 추가했는지 귀신처럼 기억한다. 저자 이름으로 코드를 오염시킬 필요가 없다.&lt;/li&gt;
+  &lt;li&gt;주석으로 처리한 코드 - 주석으로 처리된 코드는 다른 사람들이 지우기를 주저한다. 그래서 질 나쁜 와인병 바닥에 앙금이 쌓이듯 쓸모 없는 코드가 점차 쌓여간다.&lt;/li&gt;
+  &lt;li&gt;전역 정보 - 주석을 달아야 한다면 근처에 있는 코드만 기술하라. 함수 자체는 포트 기본값을 전혀 통제하지 못한다. 즉, 포트 기본값을 설정하는 코드가 변해도 아래 주석이 변하리라는 보장은 전혀 없다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/**
+* 적합성 테스트가 동작하는 포트: 기본값은 &amp;lt;b&amp;gt;8082&amp;lt;/b&amp;gt;
+*
+* @param fitnessPort
+*/&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setFitnessPort&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fitnessPort&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;fitnessePort&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fitnessePort&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;오늘 읽은 소감은? 떠오르는 생각을 가볍게 적어보세요&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;이번 장을 읽으면서 얼마나 찔렸는지 모른다. 가장 찔렸던 부분은 의무적으로 다는 주석과 중복되는 주석! 혹시나 내 코드를 이해하지 못할까봐 의무적으로 달았던 주석이 많았는데 저자의 말이 맞는 것 같다. 이해할 수 없게 코드를 짰기 때문에 주석을 다는 것이라고!&lt;/li&gt;
+  &lt;li&gt;주석을 어떻게 달까 고민하는 시간도 많았는데 주석이 필요 없는 방향으로 변수명과 함수명을 짓는데 더 많은 시간을 쏟아야겠다.&lt;/li&gt;
+  &lt;li&gt;보통 글을 작성할 때 여러번 다듬고 이 말을 여기에 써도 되는가를 고민하게 된다. 왜냐면 남들이 읽기 때문이다! 코드나 주석을 작성하는 것도 결국은 기록이 남고 남들이 읽는데 왜 신중하지 않게 작성했지?라는 생각이 든다. 주석 하나도 고민하면서 남기자.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;궁금한 내용이 있거나, 잘 이해되지 않는 내용이 있다면 적어보세요.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;이번 장은 이해가 잘됐다! 😁&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
  
  <entry>
    <title>노개북 - 클린코드 시작</title>
