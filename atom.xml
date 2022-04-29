@@ -4,7 +4,7 @@
  <title>thehue</title>
  <link href="https://thehue.github.io/atom.xml" rel="self"/>
  <link href="https://thehue.github.io/"/>
- <updated>2022-04-29T20:35:59+09:00</updated>
+ <updated>2022-04-29T20:53:19+09:00</updated>
  <id>https://thehue.github.io</id>
  <author>
    <name>thehue</name>
@@ -17,9 +17,7 @@
    <link href="https://thehue.github.io/2022/04/29/til-%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C-4%EC%9E%A5-%EC%A3%BC%EC%84%9D"/>
    <updated>2022-04-29T00:00:00+09:00</updated>
    <id>https://thehue.github.io/2022/04/29/TIL 클린코드 - 4장.주석</id>
-   <content type="html">&lt;h1 id=&quot;til-클린코드---4장-주석&quot;&gt;TIL 클린코드 - 4장. 주석&lt;/h1&gt;
-
-&lt;p&gt;&lt;strong&gt;TIL (Today I Learned)&lt;/strong&gt;&lt;/p&gt;
+   <content type="html">&lt;p&gt;&lt;strong&gt;TIL (Today I Learned)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;2022.04.29&lt;/p&gt;
 
