@@ -4,7 +4,7 @@
  <title>thehue</title>
  <link href="https://thehue.github.io/atom.xml" rel="self"/>
  <link href="https://thehue.github.io/"/>
- <updated>2022-05-07T19:28:18+09:00</updated>
+ <updated>2022-05-07T19:45:44+09:00</updated>
  <id>https://thehue.github.io</id>
  <author>
    <name>thehue</name>
@@ -53,29 +53,40 @@
   &lt;li&gt;테스트 당 assert 하나
     &lt;ul&gt;
       &lt;li&gt;assert문이 단 하나인 함수는 결론이 하나라서 코드를 이해하기 쉽고 빠르다.&lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;하지만 특정 케이스에는 assert 문을 하나로 병합하는 방식이 불합리하기 때문에 테스트를 두 개로 쪼개 각자가 assert를 수행하면 된다.
-```java
-// 출력이 XML이다.
-public void testGetPageHierarchyAsXml() throws Exception {
-  givenPages(“PageOne”, “PageOne.ChildOne”, “PageTwo”);&lt;/p&gt;
-
-        &lt;p&gt;whenRequestIsIssued(“root”, “type:pages”);&lt;/p&gt;
-
-        &lt;p&gt;thenResponseShouldBeXML();
-}&lt;/p&gt;
-      &lt;/li&gt;
+      &lt;li&gt;하지만 특정 케이스에는 assert 문을 하나로 병합하는 방식이 불합리하기 때문에 테스트를 두 개로 쪼개 각자가 assert를 수행하면 된다.&lt;/li&gt;
     &lt;/ul&gt;
 
-    &lt;p&gt;// 특정 문자열을 포함한다.
-public void testGetPageHierarchyHasRightTags() throws Exception {
-	givenPages(“PageOne”, “PageOne.ChildOne”, “PageTwo”);&lt;/p&gt;
+    &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 출력이 XML이다.&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;testGetPageHierarchyAsXml&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;givenPages&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;PageOne&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;PageOne.ChildOne&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;PageTwo&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;whenRequestIsIssued(&quot;root&quot;, &quot;type:pages&quot;);
+	&lt;span class=&quot;n&quot;&gt;whenRequestIsIssued&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;root&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;type:pages&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 
-thenResponseShouldContain(
-	&quot;&amp;lt;name&amp;gt;PageOne&amp;lt;/name&amp;gt;&quot;, &quot;&amp;lt;name&amp;gt;PageTwo&amp;lt;/name&amp;gt;&quot;, &quot;&amp;lt;name&amp;gt;ChildOne&amp;lt;/name&amp;gt;&quot;);   ); } ``` - 함수 이름은 given-when-then 관례를 잘 사용하자. - 중복 제거하는 법   - given/when 부분을 부모 클래스에 두고 then 부분을 자식 클래스에 두면 된다. 아니면 독자적인 테스트 클래스를 만들어 @Before 함수에 given/when 부분을 넣고 @Test 함수에 then 부분을 넣어도 된다.   - 하지만 모두가 배보다 배꼽이 더 크다. 이것 저것 감안해 보면 assert 문을 여럿 사용하는 편이 좋다고 생각한다. - 가장 좋은 규칙은 `개념 당 assert 문 수를 최소로 줄여라`와 `테스트 함수 하나는 개념 하나만 테스트하라`
+	&lt;span class=&quot;n&quot;&gt;thenResponseShouldBeXML&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// 특정 문자열을 포함한다.&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;testGetPageHierarchyHasRightTags&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;givenPages&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;PageOne&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;PageOne.ChildOne&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;PageTwo&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+	&lt;span class=&quot;n&quot;&gt;whenRequestIsIssued&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;root&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;type:pages&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+	&lt;span class=&quot;n&quot;&gt;thenResponseShouldContain&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&quot;&amp;lt;name&amp;gt;PageOne&amp;lt;/name&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&amp;lt;name&amp;gt;PageTwo&amp;lt;/name&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&amp;lt;name&amp;gt;ChildOne&amp;lt;/name&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;함수 이름은 given-when-then 관례를 잘 사용하자.&lt;/li&gt;
+      &lt;li&gt;중복 제거하는 법
+        &lt;ul&gt;
+          &lt;li&gt;given/when 부분을 부모 클래스에 두고 then 부분을 자식 클래스에 두면 된다. 아니면 독자적인 테스트 클래스를 만들어 @Before 함수에 given/when 부분을 넣고 @Test 함수에 then 부분을 넣어도 된다.&lt;/li&gt;
+          &lt;li&gt;하지만 모두가 배보다 배꼽이 더 크다. 이것 저것 감안해 보면 assert 문을 여럿 사용하는 편이 좋다고 생각한다.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;가장 좋은 규칙은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;개념 당 assert 문 수를 최소로 줄여라&lt;/code&gt;와 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;테스트 함수 하나는 개념 하나만 테스트하라&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;F.I.R.S.T
     &lt;ol&gt;
