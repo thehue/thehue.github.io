@@ -1,0 +1,326 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="https://thehue.github.io/assets/css/syntax.css"><link rel="preconnect" href="https://cdnjs.cloudflare.com"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><title> TIL 클린코드 - 10장. 클래스 - thehue</title><link rel="shortcut icon" href="https://thehue.github.io/favicon.png"><link rel="alternate" type="application/atom+xml" title="thehue" href="https://thehue.github.io/atom.xml"><link rel="alternate" type="application/json" title="thehue" href="https://thehue.github.io/feed.json" /><link rel="sitemap" type="application/xml" title="sitemap" href="https://thehue.github.io/sitemap.xml" /><link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,300;1,400;1,500;1,600;1,700;1,900&display=swap" rel="stylesheet"><style> *,:after,:before{box-sizing:border-box;background-color:inherit;color:inherit;margin:0;padding:0}html{font-size:15px}#theme-toggle{opacity:0.65;position:relative;border-radius:5px;height:25px;display:flex;-webkit-box-align:center;align-items:center;-webkit-box-pack:center;justify-content:center;transition:opacity 0.3s ease 0s;border:none;outline:none;background:none;cursor:pointer;padding:0px;appearance:none;transform:scale(0.8)}html,html[data-theme='light']{--text-font: Play;--source-code-font: Source Code Pro;--very-light-text-color: rgb(222, 222, 222);--light-text-color: rgb(89, 183, 255);--medium-text-color: #555;--main-text-color: #333;--highlight-text-color: #6cb4a0;--dark-text-color: #393e46;--link-color: rgb(50, 87, 209);--code-bg-color: rgb(245, 245, 245);background-color:#fff}html #theme-toggle div,html[data-theme='light'] #theme-toggle div{position:relative;width:24px;height:24px;border-radius:50%;border:none;background-color:var(--theme-ui-colors-transparent, transparent);transform:scale(1);transition:all 0.45s ease 0s;overflow:hidden;box-shadow:inset 8px -8px 0px 0px var(--theme-ui-colors-toggleIcon, #2d3748)}html #theme-toggle div::before,html[data-theme='light'] #theme-toggle div::before{content:'';position:absolute;right:-9px;top:-9px;height:24px;width:24px;border:none;border-radius:50%;transform:translate(0px, 0px);opacity:1;transition:transform 0.45s ease 0s}html #theme-toggle div::after,html[data-theme='light'] #theme-toggle div::after{content:'';width:8px;height:8px;border-radius:50%;margin:-4px 0px 0px -4px;position:absolute;top:50%;left:50%;box-shadow:0 -23px 0 var(--theme-ui-colors-toggleIcon, #2d3748),0 23px 0 var(--theme-ui-colors-toggleIcon, #2d3748),23px 0 0 var(--theme-ui-colors-toggleIcon, #2d3748),-23px 0 0 var(--theme-ui-colors-toggleIcon, #2d3748),15px 15px 0 var(--theme-ui-colors-toggleIcon, #2d3748),-15px 15px 0 var(--theme-ui-colors-toggleIcon, #2d3748),15px -15px 0 var(--theme-ui-colors-toggleIcon, #2d3748),-15px -15px 0 var(--theme-ui-colors-toggleIcon, #2d3748);transform:scale(0);transition:all 0.35s ease 0s}html[data-theme='dark']{--text-font: Play;--source-code-font: Source Code Pro;--very-light-text-color: #eee;--light-text-color: #c4bbf0;--medium-text-color: #52057b;--main-text-color: #eaeaea;--highlight-text-color: #6cb4a0;--dark-text-color: rgb(36, 38, 42);--link-color: rgb(255, 89, 125);--code-bg-color: rgb(36, 38, 42);background-color:#131418}html[data-theme='dark'] #theme-toggle div{position:relative;width:24px;height:24px;border-radius:50%;border:4px solid var(--theme-ui-colors-toggleIcon, #cbd5e0);background-color:var(--theme-ui-colors-toggleIcon, #cbd5e0);transform:scale(0.55);transition:all 0.45s ease 0s;overflow:visible;box-shadow:none}html[data-theme='dark'] #theme-toggle div::before{content:'';position:absolute;right:-9px;top:-9px;height:24px;width:24px;border:2px solid var(--theme-ui-colors-toggleIcon, #cbd5e0);border-radius:50%;transform:translate(14px, -14px);opacity:0;transition:transform 0.45s ease 0s}html[data-theme='dark'] #theme-toggle div::after{content:'';width:8px;height:8px;border-radius:50%;margin:-4px 0px 0px -4px;position:absolute;top:50%;left:50%;box-shadow:0 -23px 0 var(--theme-ui-colors-toggleIcon, #cbd5e0),0 23px 0 var(--theme-ui-colors-toggleIcon, #cbd5e0),23px 0 0 var(--theme-ui-colors-toggleIcon, #cbd5e0),-23px 0 0 var(--theme-ui-colors-toggleIcon, #cbd5e0),15px 15px 0 var(--theme-ui-colors-toggleIcon, #cbd5e0),-15px 15px 0 var(--theme-ui-colors-toggleIcon, #cbd5e0),15px -15px 0 var(--theme-ui-colors-toggleIcon, #cbd5e0),-15px -15px 0 var(--theme-ui-colors-toggleIcon, #cbd5e0);transform:scale(1);transition:all 0.35s ease 0s}body{font-family:var(--text-font),monospace;text-rendering:optimizeLegibility;line-height:1.75;color:var(--main-text-color)}a{color:var(--link-color);text-decoration:none}.post p{margin:1rem 0}.meta{margin:1.4rem 0}code,pre{background:var(--code-bg-color);margin:0 -27px;border-width:1px;overflow:auto}code{font-family:var(--source-code-font),monospace;margin:unset;padding:0.1rem;color:var(--highlight-text-color);font-size:12px;display:inline-block;vertical-align:middle}pre code{background-color:unset;color:unset}pre{border-width:3px;padding:0.8rem;white-space:pre-wrap;border-style:none none none solid;border-color:var(--light-text-color)}img{max-width:100%}hr{background:var(--light-text-color);height:1px;border:0}header{flex-basis:10rem;flex-grow:1;position:relative}header a{text-decoration:none}header li{margin-bottom:0.2rem;text-align:right;margin-right:2rem}header a.active{font-weight:bold}header,section{padding:1rem 0}section{margin-top:5.5rem}blockquote{font-style:italic;border-left:5px solid var(--dark-text-color);padding-left:1rem}h1{color:var(--main-text-color);text-transform:uppercase;font-size:2rem;font-weight:bold;margin-bottom:1.5rem}h2,h3,h4,h5{font-weight:bold;margin-bottom:1.5rem;font-size:2rem}h2{font-size:1.8rem}h3{font-size:1.6rem}h4{font-size:1.4rem}h5{font-size:1.2rem}h6{font-size:1rem}section h1:first-child{margin-top:0}strong,b{font-weight:bold}.photos ul{list-style:none}.photos li{margin-bottom:1.5rem}.photo picture,.project picture{margin-bottom:0.5rem}.posts>h3{font-weight:500}.post ul{margin:0px;margin:0px 0px 10px 10px}.post ol{margin:0px;margin:0px 0px 10px 15px}.posts li{align-items:center;display:flex;justify-content:space-between;margin-bottom:0.5rem}.posts li a,.posts li div,.projects li a{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold}.posts li time,.projects li time{padding-left:1rem;white-space:nowrap;font-variant-numeric:tabular-nums}time{color:var(--main-text-color)}.post>h1.title{font-size:x-large;margin-top:0;margin-bottom:0}.post>time{margin-bottom:0;margin-top:3rem}.highlight{margin:0px}main{display:flex;max-width:47rem;margin:-5rem auto 0;padding:2.4rem 2rem;flex-direction:column}.flex-row-between{display:flex;flex-direction:row;justify-content:space-between}.social-footer{padding:1rem;display:flex;justify-content:center;position:initial}.social-footer .social-footer-icons .fa{font-size:1.3rem;color:#a9a9a9}.social-footer .social-footer-icons .fa:hover{color:dimgray;transition:color 0.3s ease-in}@media screen and (max-width: 45rem){header li{display:inline;margin-right:1rem}.logo{padding-bottom:1rem}header ul{border-bottom:1px solid #edf2f7;padding-bottom:2rem}nav ul{border-right:0px}.photos ul{margin-top:0.5rem}main{padding:0 2rem}}section{flex-grow:999;display:flex;flex-direction:column}figcaption{font-size:smaller}.bio{margin-bottom:5rem}::selection{background-color:#fffba0;color:#333}.search-article{position:relative}.search-article label[for='search-input']{position:relative;top:-10px;left:11px}.search-article input[type='search']{top:-1rem;left:0;border:0;width:100%;height:30px;outline:none;position:absolute;border-radius:5px;padding:10px 10px 10px 35px;color:var(--main-text-color);-webkit-appearance:none;background-color:rgba(128,128,128,0.1);border:1px solid rgba(128,128,128,0.1)}.search-article input[type='search']::-webkit-input-placeholder{color:#808080}.search-article input[type='search']::-webkit-search-decoration,.search-article input[type='search']::-webkit-search-results-decoration{display:none}#search-results{text-align:center}#search-results li{text-align:center}#search-results li::before{content:'›';display:inline-block;margin-left:-1.3em;width:1.3em;color:var(--main-text-color)}.post-nav{display:flex;position:relative;margin-top:0;border-top:2px solid var(--light-text-color);line-height:1.4}.post-nav .post-nav-item{border-bottom:0;padding-bottom:10px;width:50%;padding-top:10px;text-decoration:none;box-sizing:border-box}.post-nav .post-nav-item .post-title{color:var(--main-text-color)}.post-nav .post-nav-item:hover .post-title,.post-nav .post-nav-item:focus .post-title{color:var(--link-color);opacity:0.9}.post-nav .post-nav-item .nav-arrow{font-size:17px;color:var(--main-text-color);margin-bottom:3px;font-weight:bold}.post-nav .post-nav-item:nth-child(odd){padding-left:0;padding-right:20px}.post-nav .post-nav-item:nth-child(even){text-align:right;padding-right:0;padding-left:20px}.tags ul{list-style:none;display:grid;grid-template-columns:auto auto auto auto auto auto;grid-template-rows:auto auto auto auto}.tags li{white-space:normal;text-overflow:ellipsis}.timeline{position:center;width:650px;margin:-6em auto;padding:1px;list-style-type:none}@media (max-width: 860px){.timeline{width:100%}}.timeline:before{position:absolute;left:50%;top:0;content:' ';display:block;width:6px;height:100%;margin-left:-3px;background:var(--light-text-color);z-index:5}@media (max-width: 375px){.timeline:before{height:150%}}.timeline li{padding:2em 0}@media (max-width: 860px){.timeline li{padding:2em 0}}.timeline li::after{content:'';display:block;clear:both;visibility:hidden}.direction-l{position:relative;width:287px;float:left;text-align:right}@media (max-width: 860px){.direction-l{float:none;width:100%;text-align:center}}.direction-l .flag{color:#333;box-shadow:-1px 1px 1px rgba(0,0,0,0.52)}.direction-l .flag:after{content:'';position:absolute;left:100%;top:50%;height:0;width:0;margin-top:-8px;border:solid transparent;border-left-color:#f8f8f8;border-width:8px;pointer-events:none}@media (max-width: 860px){.direction-l .flag:after{content:'';position:absolute;left:50%;top:-8px;height:0;width:0;margin-left:-8px;border:solid transparent;border-bottom-color:#fff;border-width:8px;pointer-events:none}}.direction-l .time-wrapper{float:left}@media (max-width: 860px){.direction-l .time-wrapper{float:none}}.direction-r{position:relative;width:293px;float:right;text-align:left}@media (max-width: 860px){.direction-r{float:none;width:100%;text-align:center}}.direction-r .flag{color:#333;box-shadow:1px 1px 1px rgba(0,0,0,0.52)}.direction-r .flag:after{content:'';position:absolute;right:100%;top:50%;height:0;width:0;margin-top:-8px;border:solid transparent;border-right-color:#f8f8f8;border-width:8px;pointer-events:none}@media (max-width: 860px){.direction-r .flag:after{content:'';position:absolute;left:50%;top:-8px;height:0;width:0;margin-left:-8px;border:solid transparent;border-bottom-color:#fff;border-width:8px;pointer-events:none}}.direction-r .flag:before{left:-40px}.direction-r .time-wrapper{float:right}@media (max-width: 860px){.direction-r .time-wrapper{float:none}}.flag-wrapper{position:relative;display:inline-block;text-align:center}@media (max-width: 860px){.flag-wrapper{text-align:center}}.flag-wrapper .flag{position:relative;display:inline;background:#f8f8f8;padding:6px 10px;border-radius:5px;font-weight:600;text-align:left}@media (max-width: 860px){.flag-wrapper .flag{background:#fff;z-index:15}}.direction-l .flag:before,.direction-r .flag:before{position:absolute;top:60%;right:-40px;content:' ';display:block;width:12px;height:12px;margin-top:-10px;background:#fff;border-radius:10px;border:4px solid var(--link-color);z-index:10}@media (max-width: 860px){.direction-l .flag:before,.direction-r .flag:before{position:absolute;top:-30px;left:53%;content:' ';display:block;margin-left:-10px}}.time-wrapper{display:inline;line-height:1em;font-size:0.66666em;color:var(--link-color);vertical-align:middle}@media (max-width: 860px){.time-wrapper{display:block;position:relative;margin:4px 0 0 0;z-index:14}}.time-wrapper .time{display:inline-block;padding:4px 6px;background:#f8f8f8}.desc{margin:1em 0.2em -3.5em 0;font-size:0.9em;line-height:1.5em}.desc a{color:var(--link-color);text-decoration:none}.desc a:hover{text-decoration:underline}@media (max-width: 860px){.desc{position:relative;margin:1em 1em 0 1em;padding:1em;background:var(--code-bg-color);box-shadow:0 0 1px rgba(0,0,0,0.2);z-index:15}}</style></head><script async src="https://www.googletagmanager.com/gtag/js?id=G-3EP7KLCYVP"></script> <script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-3EP7KLCYVP'); </script><body><main><section class="post"><div class="flex-row-between"> <a href="https://thehue.github.io/">« back</a> <button title="Change theme" id="theme-toggle" onclick="modeSwitcher()"><div></div></button></div><time datetime="2022-05-10T00:00:00+09:00">May 10, 2022 - 4 ' read</time><h1 class="title"> TIL 클린코드 - 10장. 클래스</h1><span class="meta"> <a href="https://thehue.github.io/tag/노마드코더">노마드코더</a>, <a href="https://thehue.github.io/tag/북클럽">북클럽</a>, <a href="https://thehue.github.io/tag/노개북">노개북</a>, <a href="https://thehue.github.io/tag/노마드북클럽">노마드북클럽</a>, <a href="https://thehue.github.io/tag/코딩">코딩</a>, <a href="https://thehue.github.io/tag/개발자">개발자</a></span><h2 id="til-today-i-learned"> <strong>TIL (Today I Learned)</strong> <a href="#til-today-i-learned">#</a></h2><p>2022.05.10</p><h2 id="오늘-읽은-범위"> <strong>오늘 읽은 범위</strong> <a href="#오늘-읽은-범위">#</a></h2><p>10장. 클래스</p><h2 id="책에서-기억하고-싶은-내용을-써보세요"> <strong>책에서 기억하고 싶은 내용을 써보세요.</strong> <a href="#책에서-기억하고-싶은-내용을-써보세요">#</a></h2><ul><li>클래스 체계<ul><li>변수 목록 → 함수</li><li>클래스를 정의하는 표준 자바 관계에 따르면 다음 순서를 따른다.<ol><li>static public</li><li>static private</li><li>private 인스턴스 변수</li><li>public 함수</li><li>private 함수는 자신을 호출하는 공개 함수 직후에 넣는다.</li></ol></li><li>캡슐화 - 변수와 유틸리티 함수는 가능한 공개하지 않는 편이 낫지만 반드시 숨겨야 한다는 법칙도 없다. 때로는 변수나 유틸리티 함수를 protected로 선언해 테스트 코드에 접근을 허용하기도 한다. 하지만 캡슐화를 풀어주는 결정은 언제나 최후의 수단이다.</li></ul></li><li>클래스는 작아야 한다!<ul><li>함수는 물리적인 행 수로 크기를 측정했다. 클래스는 맡은 <code class="language-plaintext highlighter-rouge">책임</code>을 세는 것을 척도로 여긴다.</li><li>클래스 이름은 해당 클래스 책임을 기술해야 한다. 간결한 이름이 떠오르지 않는다면 필경 클래스 크기가 너무 커서 그렇다.</li><li>클래스 설명은 if, and, or, but을 사용하지 않고서 25단어 내외로 가능해야 한다.</li><li><code class="language-plaintext highlighter-rouge">단일 책임 원칙 (SRP)</code> - 단일 책임 원칙은 클래스나 모듈을 변경할 이유가 하나, 단 하나뿐이어야 한다는 원칙이다.</li><li>책임, 즉 변경할 이유를 파악하려 애쓰다 보면 코드를 추상화하기도 쉬워진다.<ul><li>SuperDashboard에서 버전 정보를 다루는 메서드 세 개를 따로 빼내 Version이라는 독자적인 클래스를 만든다.<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Version</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getMajorVersionNumber</span><span class="o">()</span>
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getMinorVersionNumber</span><span class="o">()</span>
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getBuildNumber</span><span class="o">()</span>
+<span class="o">}</span>
+</code></pre></div></div></li></ul></li><li>큼직한 다목적 클래스 몇 개로 이뤄진 시스템은 당장 알 필요가 없는 사실까지 들이밀어 독자를 방해한다.</li><li><code class="language-plaintext highlighter-rouge">응집도</code> - 클래스는 인스턴스 변수 수가 작아야한다. 각 클래스 메서드는 클래스 인스턴스 변수를 하나 이상 사용해야 한다.</li><li>‘함수를 작게, 매개변수 목록을 짧게’라는 전략을 따르다 보면 때때로 몇몇 메서드만이 사용하는 인스턴스 변수가 아주 많아진다. 이는 십중팔구 새로운 클래스로 쪼개야 한다는 신호다. 응집도가 높아지도록 변수와 메서드를 적절히 분리해 새로운 클래스 두세 개로 쪼개준다.</li></ul></li><li>변경하기 쉬운 클래스<ul><li>깨끗한 시스템은 클래스를 체계적으로 정리해 변경에 수반하는 위험을 낮춘다.</li></ul></li></ul><h2 id="오늘-읽은-소감은-떠오르는-생각을-가볍게-적어보세요"> <strong>오늘 읽은 소감은? 떠오르는 생각을 가볍게 적어보세요</strong> <a href="#오늘-읽은-소감은-떠오르는-생각을-가볍게-적어보세요">#</a></h2><ul><li>어떻게 클래스를 책임에 따라 분리 하는지, 클래스명을 어떤식으로 수정 하는지를 중심으로 봤다. 해당 방법을 타입스크립트로 클래스를 설계할 일이 있다면 참고하면 좋을 것 같다.</li></ul><h2 id="더-공부한-내용"> <strong>더 공부한 내용</strong> <a href="#더-공부한-내용">#</a></h2><p>출처: <a href="https://github.com/qkraudghgh/clean-code-javascript-ko">Clean Code concepts adapted for JavaScript - 한글 번역판</a></p><h3 id="solid"> *<strong>*<a href="https://ko.wikipedia.org/wiki/SOLID_(%EA%B0%9D%EC%B2%B4_%EC%A7%80%ED%96%A5_%EC%84%A4%EA%B3%84)">SOLID</a>**</strong> <a href="#solid">#</a></h3><hr /><h3 id="단일-책임-원칙-single-responsibility-principle-srp"> *<strong>*단일 책임 원칙 (Single Responsibility Principle, SRP)**</strong> <a href="#단일-책임-원칙-single-responsibility-principle-srp">#</a></h3><p>하나의 클래스에 많은 기능을 쑤셔 넣으면 안된다. 하나의 클래스에 너무 많은 기능들이 있고 당신이 이 작은 기능들을 수정할 때 이 코드가 다른 모듈들에 어떠한 영향을 끼치는지 이해하기 어려울 수 있기 때문이다.</p><p>안 좋은 예:</p><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">UserSettings</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">user</span> <span class="o">=</span> <span class="nx">user</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">changeSettings</span><span class="p">(</span><span class="nx">settings</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">verifyCredentials</span><span class="p">())</span> <span class="p">{</span>
+      <span class="c1">// ...</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="nx">verifyCredentials</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div><p>좋은 예:</p><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">UserAuth</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">user</span> <span class="o">=</span> <span class="nx">user</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">verifyCredentials</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nx">UserSettings</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">user</span> <span class="o">=</span> <span class="nx">user</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">auth</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UserAuth</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">changeSettings</span><span class="p">(</span><span class="nx">settings</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">auth</span><span class="p">.</span><span class="nx">verifyCredentials</span><span class="p">())</span> <span class="p">{</span>
+      <span class="c1">// ...</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div><h3 id="개방폐쇄-원칙-openclosed-principle-ocp"> 개방/폐쇄 원칙 (Open/Closed Principle, OCP) <a href="#개방폐쇄-원칙-openclosed-principle-ocp">#</a></h3><p>이 원리는 기본적으로 사용자가 <code class="language-plaintext highlighter-rouge">.js</code>소스 코드 파일을 열어 수동으로 조작하지 않고도 모듈의 기능을 확장하도록 허용해야한다고 말한다.</p><p>안 좋은 예:</p><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">AjaxAdapter</span> <span class="kd">extends</span> <span class="nx">Adapter</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">super</span><span class="p">();</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">ajaxAdapter</span><span class="dl">'</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nx">NodeAdapter</span> <span class="kd">extends</span> <span class="nx">Adapter</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">super</span><span class="p">();</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">nodeAdapter</span><span class="dl">'</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nx">HttpRequester</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">adapter</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">adapter</span> <span class="o">=</span> <span class="nx">adapter</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">adapter</span><span class="p">.</span><span class="nx">name</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">ajaxAdapter</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">makeAjaxCall</span><span class="p">(</span><span class="nx">url</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="c1">// transform response and return</span>
+      <span class="p">});</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">adapter</span><span class="p">.</span><span class="nx">name</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">httpNodeAdapter</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">makeHttpCall</span><span class="p">(</span><span class="nx">url</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="c1">// transform response and return</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">makeAjaxCall</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// request and return promise</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">makeHttpCall</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// request and return promise</span>
+<span class="p">}</span>
+</code></pre></div></div><p>좋은 예:</p><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">AjaxAdapter</span> <span class="kd">extends</span> <span class="nx">Adapter</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">super</span><span class="p">();</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">ajaxAdapter</span><span class="dl">'</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">request</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// request and return promise</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nx">NodeAdapter</span> <span class="kd">extends</span> <span class="nx">Adapter</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">super</span><span class="p">();</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">nodeAdapter</span><span class="dl">'</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">request</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// request and return promise</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 각 adapter마다 커스텀으로 requestUrl 처리가 가능함.</span>
+<span class="kd">class</span> <span class="nx">HttpRequester</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">adapter</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">adapter</span> <span class="o">=</span> <span class="nx">adapter</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">adapter</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="nx">url</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="c1">// transform response and return</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div><h3 id="리스코프-치환-원칙-liskov-substitution-principle-lsp"> *<strong>*리스코프 치환 원칙 (Liskov Substitution Principle, LSP)**</strong> <a href="#리스코프-치환-원칙-liskov-substitution-principle-lsp">#</a></h3><p>리스코프 치환 원칙이란 자료형 S가 자료형 T의 하위형이면 프로그램이 갖추어야 할 속성들의 변경사항 없이, 자료형 T의 객체를 자료형 S의 객체로 교체할 수 있어야 한다는 원칙이다.</p><p>안좋은 예:</p><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Rectangle</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">setColor</span><span class="p">(</span><span class="nx">color</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+
+  <span class="nx">render</span><span class="p">(</span><span class="nx">area</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+
+  <span class="nx">setWidth</span><span class="p">(</span><span class="nx">width</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">width</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">setHeight</span><span class="p">(</span><span class="nx">height</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">height</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">getArea</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">height</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">// 정사각형</span>
+<span class="kd">class</span> <span class="nx">Square</span> <span class="kd">extends</span> <span class="nx">Rectangle</span> <span class="p">{</span>
+  <span class="nx">setWidth</span><span class="p">(</span><span class="nx">width</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">width</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">width</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">setHeight</span><span class="p">(</span><span class="nx">height</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">height</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">height</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">renderLargeRectangles</span><span class="p">(</span><span class="nx">rectangles</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">rectangles</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">rectangle</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">rectangle</span><span class="p">.</span><span class="nx">setWidth</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+    <span class="nx">rectangle</span><span class="p">.</span><span class="nx">setHeight</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">area</span> <span class="o">=</span> <span class="nx">rectangle</span><span class="p">.</span><span class="nx">getArea</span><span class="p">();</span> <span class="c1">// 정사각형일때 25를 리턴합니다. 하지만 20이어야 하는게 맞습니다.</span>
+    <span class="nx">rectangle</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">area</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">rectangles</span> <span class="o">=</span> <span class="p">[</span><span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">Square</span><span class="p">()];</span>
+<span class="nx">renderLargeRectangles</span><span class="p">(</span><span class="nx">rectangles</span><span class="p">);</span>
+</code></pre></div></div><p>좋은 예:</p><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Shape</span> <span class="p">{</span>
+  <span class="nx">setColor</span><span class="p">(</span><span class="nx">color</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+
+  <span class="nx">render</span><span class="p">(</span><span class="nx">area</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nx">Rectangle</span> <span class="kd">extends</span> <span class="nx">Shape</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">super</span><span class="p">();</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">width</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">height</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">getArea</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">height</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nx">Square</span> <span class="kd">extends</span> <span class="nx">Shape</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">super</span><span class="p">();</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="nx">length</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">getArea</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">renderLargeShapes</span><span class="p">(</span><span class="nx">shapes</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">shapes</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">shape</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">area</span> <span class="o">=</span> <span class="nx">shape</span><span class="p">.</span><span class="nx">getArea</span><span class="p">();</span>
+    <span class="nx">shape</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">area</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">shapes</span> <span class="o">=</span> <span class="p">[</span><span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="k">new</span> <span class="nx">Square</span><span class="p">(</span><span class="mi">5</span><span class="p">)];</span>
+<span class="nx">renderLargeShapes</span><span class="p">(</span><span class="nx">shapes</span><span class="p">);</span>
+</code></pre></div></div><h3 id="인터페이스-분리-원칙interface-segregation-principle-isp"> <strong>인터페이스 분리 원칙(Interface Segregation Principle, ISP)</strong> <a href="#인터페이스-분리-원칙interface-segregation-principle-isp">#</a></h3><ul><li>Javascript에 타입 시스템이 없다 하더라도 중요하고 관계있는 원칙</li><li>ISP에 의하면 클라이언트는 사용하지 않는 인터페이스에 의존하도록 강요받으면 안된다. <a href="https://ko.wikipedia.org/wiki/%EB%8D%95_%ED%83%80%EC%9D%B4%ED%95%91">덕 타이핑</a> 때문에 인터페이스는 Javascript에서는 암시적인 계약일 뿐이다.</li><li>설정을 선택적으로 할 수 있다면 무거운 인터페이스를 만드는 것을 방지 할 수 있다.</li></ul><p>안좋은 예</p><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">DOMTraverser</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">settings</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">settings</span> <span class="o">=</span> <span class="nx">settings</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setup</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="nx">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">rootNode</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">settings</span><span class="p">.</span><span class="nx">rootNode</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">animationModule</span><span class="p">.</span><span class="nx">setup</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="nx">traverse</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">$</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DOMTraverser</span><span class="p">({</span>
+  <span class="na">rootNode</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="dl">'</span><span class="s1">body</span><span class="dl">'</span><span class="p">),</span>
+  <span class="nx">animationModule</span><span class="p">()</span> <span class="p">{},</span> <span class="c1">// 우리는 대부분의 경우 DOM을 탐색할 때 애니메이션이 필요하지 않습니다.</span>
+  <span class="c1">// ...</span>
+<span class="p">});</span>
+</code></pre></div></div><p>좋은 예</p><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">DOMTraverser</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">settings</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">settings</span> <span class="o">=</span> <span class="nx">settings</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">options</span> <span class="o">=</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">options</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setup</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="nx">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">rootNode</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">settings</span><span class="p">.</span><span class="nx">rootNode</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setupOptions</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="nx">setupOptions</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">animationModule</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// ...</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="nx">traverse</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">$</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DOMTraverser</span><span class="p">({</span>
+  <span class="na">rootNode</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="dl">'</span><span class="s1">body</span><span class="dl">'</span><span class="p">),</span>
+  <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">animationModule</span><span class="p">()</span> <span class="p">{},</span>
+  <span class="p">},</span>
+<span class="p">});</span>
+</code></pre></div></div><h3 id="의존성-역전-원칙-dependency-inversion-principle-dip"> <strong>의존성 역전 원칙 (Dependency Inversion Principle, DIP)</strong> <a href="#의존성-역전-원칙-dependency-inversion-principle-dip">#</a></h3><ol><li>상위 모듈은 하위 모듈에 종속 되어서는 안된다. 둘 다 추상화에 의존해야 한다.</li><li>추상화는 세부사항에 의존하지 않는다. 세부사항은 추상화에 의해 달라져야 한다.</li></ol><p>DI의 장점은 모듈 간의 의존성을 감소시키는 데에 있다. 모듈간의 의존성이 높을수록 코드를 리팩토링 하는데 어려워진다.</p><p>Javascript에는 인터페이스가 없으므로 추상화에 의존하는 것은 암시적인 약속이다. 즉 다른 객체나 클래스에 노출되는 메소드와 속성이 바로 암시적인 약속(추상화)가 된다는 것이다.</p><p>아래 예제에서 암시적인 약속은 InventoryTracker에 대한 모든 요청 모듈이 requestItems 메소드를 가질 것이라는 점이다.</p><p>안좋은 예:</p><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">InventoryRequester</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">REQ_METHODS</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">HTTP</span><span class="dl">'</span><span class="p">];</span>
+  <span class="p">}</span>
+
+  <span class="nx">requestItem</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nx">InventoryTracker</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">items</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">items</span> <span class="o">=</span> <span class="nx">items</span><span class="p">;</span>
+
+    <span class="c1">// 안좋은 이유: 특정 요청방법 구현에 대한 의존성을 만들었습니다.</span>
+    <span class="c1">// requestItems는 한가지 요청방법을 필요로 합니다.</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">requester</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">InventoryRequester</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="nx">requestItems</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">requester</span><span class="p">.</span><span class="nx">requestItem</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">inventoryTracker</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">InventoryTracker</span><span class="p">([</span><span class="dl">'</span><span class="s1">apples</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">bananas</span><span class="dl">'</span><span class="p">]);</span>
+<span class="nx">inventoryTracker</span><span class="p">.</span><span class="nx">requestItems</span><span class="p">();</span>
+</code></pre></div></div><p>좋은 예:</p><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">InventoryTracker</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">items</span><span class="p">,</span> <span class="nx">requester</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">items</span> <span class="o">=</span> <span class="nx">items</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">requester</span> <span class="o">=</span> <span class="nx">requester</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">requestItems</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">requester</span><span class="p">.</span><span class="nx">requestItem</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nx">InventoryRequesterV1</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">REQ_METHODS</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">HTTP</span><span class="dl">'</span><span class="p">];</span>
+  <span class="p">}</span>
+
+  <span class="nx">requestItem</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nx">InventoryRequesterV2</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">REQ_METHODS</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">WS</span><span class="dl">'</span><span class="p">];</span>
+  <span class="p">}</span>
+
+  <span class="nx">requestItem</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 의존성을 외부에서 만들어 주입해줌으로써,</span>
+<span class="c1">// 요청 모듈을 새롭게 만든 웹소켓 사용 모듈로 쉽게 바꿔 끼울 수 있게 되었습니다.</span>
+<span class="kd">const</span> <span class="nx">inventoryTracker</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">InventoryTracker</span><span class="p">(</span>
+  <span class="p">[</span><span class="dl">'</span><span class="s1">apples</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">bananas</span><span class="dl">'</span><span class="p">],</span>
+  <span class="k">new</span> <span class="nx">InventoryRequesterV2</span><span class="p">(),</span>
+<span class="p">);</span>
+<span class="nx">inventoryTracker</span><span class="p">.</span><span class="nx">requestItems</span><span class="p">();</span>
+</code></pre></div></div></section><section><nav class="post-nav"> <a class="post-nav-item post-nav-prev" href="/2022/05/07/til-%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C-9%EC%9E%A5-%EB%8B%A8%EC%9C%84-%ED%85%8C%EC%8A%A4%ED%8A%B8"><div class="nav-arrow">Previous</div><span class="post-title">TIL 클린코드 - 9장. 단위 테스트</span> </a></nav></section><div id="disqus_thread" class="article-comments"></div><script> (function() { var d = document, s = d.createElement('script'); s.src = '//heyhue.disqus.com/embed.js'; s.setAttribute('data-timestamp', +new Date()); (d.head || d.body).appendChild(s); })(); </script> <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></main><script> function setTheme(theme) { if (theme === "dark") { document.documentElement.setAttribute('data-theme', 'dark'); window.localStorage.setItem('theme', 'dark'); document.getElementById("theme-toggle").classList.add('sun'); document.getElementById("theme-toggle").classList.remove('moon'); } else { document.documentElement.setAttribute('data-theme', 'light'); window.localStorage.setItem('theme', 'light'); document.getElementById("theme-toggle").classList.add('moon'); document.getElementById("theme-toggle").classList.remove('sun'); } } let theme = localStorage.getItem('theme'); theme = theme || (window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light' : 'light'); setTheme(theme); function modeSwitcher() { let currentMode = document.documentElement.getAttribute('data-theme'); if (currentMode === "dark") { setTheme('light'); } else { setTheme('dark'); } } </script></body><footer class="social-footer"><div class="social-footer-icons"> <a href="https://github.com/P0WEX" title="Github profile, nothing much there, yet" target="_blank" rel="noopener noreferrer"><i class="fa fa-github" aria-hidden="true"></i></a> <a href="https://thehue.github.io/atom.xml" title="Feed RSS" target="_blank" rel="noopener noreferrer"><i class="fa fa-rss" aria-hidden="true"></i></a> <a href="https://github.com/P0WEX/Gesko" title="Browse the code" target="_blank" rel="noopener noreferrer"><i class="fa fa-code" aria-hidden="true"></i></a></div></footer></html>
