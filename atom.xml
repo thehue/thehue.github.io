@@ -4,13 +4,142 @@
  <title>thehue</title>
  <link href="https://thehue.github.io/atom.xml" rel="self"/>
  <link href="https://thehue.github.io/"/>
- <updated>2022-05-10T21:34:11+09:00</updated>
+ <updated>2022-06-04T12:55:29+09:00</updated>
  <id>https://thehue.github.io</id>
  <author>
    <name>thehue</name>
    <email>gouk32@naver.com</email>
  </author>
 
+ 
+ <entry>
+   <title>TIL Udemy Javascript Unit Testing - Section1. Getting Started</title>
+   <link href="https://thehue.github.io/2022/06/04/til-javascript-unit-testing-section1-getting-started"/>
+   <updated>2022-06-04T00:00:00+09:00</updated>
+   <id>https://thehue.github.io/2022/06/04/TIL Javascript Unit Testing - section1.Getting Started</id>
+   <content type="html">&lt;h2 id=&quot;what-is-testing&quot;&gt;What is Testing&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;의도한대로 작동 되는지 증명하는 것&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Manual Testing&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;지루하고 번거로움&lt;/li&gt;
+  &lt;li&gt;오류가 발생하기 쉬움&lt;/li&gt;
+  &lt;li&gt;종종 불완전함(모든 시나리오가 적용되는 것이 아님)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Automated Testing&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;초기 테스트 코드를 작성하는 것 외엔 따로 신경쓸 것이 없음&lt;/li&gt;
+  &lt;li&gt;예측 가능하고 일관성 있음&lt;/li&gt;
+  &lt;li&gt;높은/완전한 코드 및 시나리오 커버리지 달성 가능함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;what-are-unit-tests&quot;&gt;What Are Unit Tests?&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;앱의 구성 요소&lt;/li&gt;
+  &lt;li&gt;eg., a function, a class, a component
+    &lt;ul&gt;
+      &lt;li&gt;보통은 함수를 unit이라 본다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;App = 모든 unit의 조합&lt;/li&gt;
+  &lt;li&gt;모든 unit을 테스트한 경우 전체적인 앱이 작동되어야 한다.
+    &lt;ul&gt;
+      &lt;li&gt;Integration 테스트로 백업한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;버그를 방지하기 위해 모든 unit에 대해 항상 변경된 사항들을 테스트한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;why-unit-testing&quot;&gt;Why Unit Testing?&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;끝없는 수동 테스트 방지&lt;/li&gt;
+  &lt;li&gt;코드 및 시나리오의 거의 100%를 커버할 수 있다.&lt;/li&gt;
+  &lt;li&gt;코드가 변경되면 거의 즉시 모든 시나리오들이 테스트된다&lt;/li&gt;
+  &lt;li&gt;메인 코드가 깨끗하고 좋은 방식으로 작성되면 테스트가 더 쉬워지게 때문에 더 나은 코드 작성할 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;unit-integration--end-to-end-e2e-testing-비교&quot;&gt;Unit, Integration &amp;amp; End-to-End (E2E) Testing 비교&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Unit Testing&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;앱의 개별 구성 요소 테스트&lt;/li&gt;
+  &lt;li&gt;모든 unit이 독립적으로 테스트됨&lt;/li&gt;
+  &lt;li&gt;만약 모든 unit들이 작동한다면, 전체 앱이 잘 작동하는 것이다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Integration Testing&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;units의 조합을 테스트&lt;/li&gt;
+  &lt;li&gt;unit들이 함께 작동하는지 확인한다&lt;/li&gt;
+  &lt;li&gt;모든 unit 테스트가 독립적으로 잘 작동하더라도 통합테스트는 실패할 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;End-to-End(E2E) Testing&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;전체 흐름 및 애플리케이션 기능을 테스트
+    &lt;ul&gt;
+      &lt;li&gt;애플리케이션이 제공할 수 있는 특정 사용자 행동이나 특정 API 인터페이스에 초점을 맞추고 전체 흐름, 전체 애플리케이션 기능을 테스트한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;실제 사용자가 수행할 작업을 테스트&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;예) 이미지 업로드 API &lt;a href=&quot;https://blog.naver.com/PostView.naver?blogId=ghdalswl77&amp;amp;logNo=222401162545&amp;amp;parentCategoryNo=&amp;amp;categoryNo=90&amp;amp;viewDate=&amp;amp;isShowPopularPosts=true&amp;amp;from=search&quot;&gt;EndPoint&lt;/a&gt;를 만드는 경우, 들어오는 요청에서 이미지를 추출한 다음 파일 시스템에 저장하는 등의 전체 이미지 업로드 워크플로우를 테스트할 수 있다.&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Unit Testing을 사용하면 흐름을 구성하는 개별적인 부분을 테스트할 수 있다&lt;/li&gt;
+      &lt;li&gt;통합 테스트를 통해 이러한 Unit의 조합을 테스트할 수 있다&lt;/li&gt;
+      &lt;li&gt;E2E테스트로 전체 흐름을 테스트할 수 있습니다. 실제 사용자 또는 프로그램과 상호 작용하는 실제 작업을 테스트한다.&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;&lt;strong&gt;모든 종류의 테스트를 결합해서 사용해야 하는 이유&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;Unit Testing&lt;/strong&gt;
+        &lt;ul&gt;
+          &lt;li&gt;파손된 변경 사항 및 오류를 신속하게 찾아내지만 실제 사용자 행동 흐름 및 개입을 무시한다.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Integration Testing&lt;/strong&gt;
+        &lt;ul&gt;
+          &lt;li&gt;정확한 오류의 근원지를 찾는 것이 어려울 수 있다.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;End-to-End(E2E) Testing&lt;/strong&gt;
+        &lt;ul&gt;
+          &lt;li&gt;가능한 모든 행동을 커버해서 테스트 하는 것이 어려울 수 있다.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;test-driven-development-tdd&quot;&gt;Test-Driven Development (TDD)&lt;/h2&gt;
+
+&lt;p&gt;테스트를 작성하는 체계 / 철학. 다음의 방식으로 테스트를 작성하는 체계 / 철학이다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;ol&gt;
+    &lt;li&gt;실패하는 테스트를 작성한다.&lt;/li&gt;
+    &lt;li&gt;테스트를 성공시키기 위한 코드를 구현한다.&lt;/li&gt;
+    &lt;li&gt;코드를 리팩토링한다.&lt;/li&gt;
+    &lt;li&gt;1번 과정을 다시 수행한다.&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;이번 강의는 TDD으로 하진 않는다. 테스트의 기초에 대해서 알아본다.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>TIL 클린코드 - 10장. 클래스</title>
@@ -83,11 +212,11 @@
 
 &lt;p&gt;출처: &lt;a href=&quot;https://github.com/qkraudghgh/clean-code-javascript-ko&quot;&gt;Clean Code concepts adapted for JavaScript - 한글 번역판&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;solid&quot;&gt;*&lt;strong&gt;*&lt;a href=&quot;https://ko.wikipedia.org/wiki/SOLID_(%EA%B0%9D%EC%B2%B4_%EC%A7%80%ED%96%A5_%EC%84%A4%EA%B3%84)&quot;&gt;SOLID&lt;/a&gt;**&lt;/strong&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;solid&quot;&gt;&lt;a href=&quot;https://ko.wikipedia.org/wiki/SOLID_(%EA%B0%9D%EC%B2%B4_%EC%A7%80%ED%96%A5_%EC%84%A4%EA%B3%84)&quot;&gt;SOLID&lt;/a&gt;&lt;/h3&gt;
 
 &lt;hr /&gt;
 
-&lt;h3 id=&quot;단일-책임-원칙-single-responsibility-principle-srp&quot;&gt;*&lt;strong&gt;*단일 책임 원칙 (Single Responsibility Principle, SRP)**&lt;/strong&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;단일-책임-원칙-single-responsibility-principle-srp&quot;&gt;단일 책임 원칙 (Single Responsibility Principle, SRP)&lt;/h3&gt;
 
 &lt;p&gt;하나의 클래스에 많은 기능을 쑤셔 넣으면 안된다. 하나의 클래스에 너무 많은 기능들이 있고 당신이 이 작은 기능들을 수정할 때 이 코드가 다른 모듈들에 어떠한 영향을 끼치는지 이해하기 어려울 수 있기 때문이다.&lt;/p&gt;
 
@@ -221,7 +350,7 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;리스코프-치환-원칙-liskov-substitution-principle-lsp&quot;&gt;*&lt;strong&gt;*리스코프 치환 원칙 (Liskov Substitution Principle, LSP)**&lt;/strong&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;리스코프-치환-원칙-liskov-substitution-principle-lsp&quot;&gt;리스코프 치환 원칙 (Liskov Substitution Principle, LSP)&lt;/h3&gt;
 
 &lt;p&gt;리스코프 치환 원칙이란 자료형 S가 자료형 T의 하위형이면 프로그램이 갖추어야 할 속성들의 변경사항 없이, 자료형 T의 객체를 자료형 S의 객체로 교체할 수 있어야 한다는 원칙이다.&lt;/p&gt;
 
