@@ -17,6 +17,30 @@
 "items": [
     
         {
+            "id": "https://thehue.github.io/2022/06/08/til-javascript-unit-testing-section2-setup-testing-software",
+            "title": "TIL Udemy Javascript Unit Testing - Section2. Setup & Testing Software",
+            "summary": "Testing Setup",
+            "content_text": "Testing SetupTest Runner(테스트 실행기)  테스트 코드를 실행한다  자동으로 테스트 코드를 감지한다  결과를 보여준다  e.g., Jest, KarmaAssertion Library  예상하는 결과를 정의하는데 사용한다.  예상하는 결과가 맞는지를 체크한다.  모든 종류의 예상 및 모드(sync / async)를 지원한다.  e.g., Jest, ChaiJest vs VitestJest는 페이스북에서 만든 Javascript Testing Framework로 현재 가장 인기가 많은 프레임 워크이다. 그러나 다음과 같은 단점이 있다.  다소 느린 편이다.  commonJS를 사용하는 환경에서 사용하기 어렵다. (babel 설정을 해줘야함)따라서 해당 강의에서는 Vitest를 사용한다. Vitest는 다음과 같은 장점이 있다.  Jest보다 빠르다  Jest 구문과 호환된다.  별도의 설치나 구성 없이 ES modules이나 commonJS를 지원한다.  Jest와 같이 Vitest는 test runner이자 assertion library이다.",
+            "content_html": "<h2 id=\"testing-setup\">Testing Setup</h2><p><strong>Test Runner(테스트 실행기)</strong></p><ul>  <li>테스트 코드를 실행한다</li>  <li>자동으로 테스트 코드를 감지한다</li>  <li>결과를 보여준다</li>  <li>e.g., Jest, Karma</li></ul><p><strong>Assertion Library</strong></p><ul>  <li>예상하는 결과를 정의하는데 사용한다.</li>  <li>예상하는 결과가 맞는지를 체크한다.</li>  <li>모든 종류의 예상 및 모드(sync / async)를 지원한다.</li>  <li>e.g., Jest, Chai</li></ul><h3 id=\"jest-vs-vitest\">Jest vs Vitest</h3><p>Jest는 페이스북에서 만든 Javascript Testing Framework로 현재 가장 인기가 많은 프레임 워크이다. 그러나 다음과 같은 단점이 있다.</p><ul>  <li>다소 느린 편이다.</li>  <li>commonJS를 사용하는 환경에서 사용하기 어렵다. (babel 설정을 해줘야함)</li></ul><p>따라서 해당 강의에서는 Vitest를 사용한다. Vitest는 다음과 같은 장점이 있다.</p><ul>  <li>Jest보다 빠르다</li>  <li>Jest 구문과 호환된다.</li>  <li>별도의 설치나 구성 없이 ES modules이나 commonJS를 지원한다.</li>  <li>Jest와 같이 Vitest는 test runner이자 assertion library이다.</li></ul>",
+            "url": "https://thehue.github.io/2022/06/08/til-javascript-unit-testing-section2-setup-testing-software",
+            
+            
+            
+            "tags": ["Udemy","TIL","javascript","test","jest","vitest"],
+            
+            "date_published": "2022-06-08T00:00:00+09:00",
+            "date_modified": "2022-06-08T00:00:00+09:00",
+            
+                "author":  {
+                "name": "thehue",
+                "url": null,
+                "avatar": null
+                }
+                
+            
+        },
+    
+        {
             "id": "https://thehue.github.io/2022/06/04/til-javascript-unit-testing-section1-getting-started",
             "title": "TIL Udemy Javascript Unit Testing - Section1. Getting Started",
             "summary": "What is Testing",

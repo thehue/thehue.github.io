@@ -1,6 +1,15 @@
 [
   
     {
+      "title"    : "TIL Udemy Javascript Unit Testing - Section2. Setup &amp; Testing Software",
+      "description" : "Testing Setup",
+      "category" : "",
+      "tags"     : "Udemy, TIL, javascript, test, jest, vitest",
+      "url"      : "/2022/06/08/til-javascript-unit-testing-section2-setup-testing-software",
+      "date"     : "2022-06-08 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "TIL Udemy Javascript Unit Testing - Section1. Getting Started",
       "description" : "What is Testing",
       "category" : "",
