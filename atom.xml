@@ -4,13 +4,124 @@
  <title>thehue</title>
  <link href="https://thehue.github.io/atom.xml" rel="self"/>
  <link href="https://thehue.github.io/"/>
- <updated>2022-07-01T14:52:52+09:00</updated>
+ <updated>2023-05-11T00:59:26+09:00</updated>
  <id>https://thehue.github.io</id>
  <author>
    <name>thehue</name>
    <email>gouk32@naver.com</email>
  </author>
 
+ 
+ <entry>
+   <title>TIL Udemy Rust 완벽 정복 - 섹션 1. 시작하기</title>
+   <link href="https://thehue.github.io/2023/05/10/til-rust-%EC%99%84%EB%B2%BD-%EC%A0%95%EB%B3%B5-%EC%84%B9%EC%85%98-1-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0"/>
+   <updated>2023-05-10T00:00:00+09:00</updated>
+   <id>https://thehue.github.io/2023/05/10/TIL Rust 완벽 정복 - 섹션 1.시작하기</id>
+   <content type="html">&lt;p&gt;&lt;strong&gt;TIL (Today I Learned)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;2023.05.09&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;오늘 들은 범위&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;섹션 1: 시작하기&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;강의에서 기억하고 싶은 내용&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;러스트는 메모리 안전 시스템 언어
+    &lt;ul&gt;
+      &lt;li&gt;런타임이나 가비지 컬렉터가 없지만 풍부한 타입 시스템과 &lt;a href=&quot;https://comb.tistory.com/7&quot;&gt;소유권 모델(ownership model)&lt;/a&gt;로 메모리 &amp;amp; 스레드 안정성을 보장&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;null값이 없다. 대신 존재하지 않는 값을 나타내기 위한 다른 타입 시스템을 사용하고 있다.
+    &lt;ul&gt;
+      &lt;li&gt;포인터가 없는 참조나 null이 예외가 아니라는 뜻&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;러스트는 Cargo라는 훌륭한 패키지 관리자를 갖고 있다.&lt;/li&gt;
+  &lt;li&gt;No Data Races - 코드가 컴파일 되면 더 이상 &lt;a href=&quot;https://zepeh.tistory.com/195&quot;&gt;데이터 레이스&lt;/a&gt;가 발생하지 않는다. - 복잡한 비동기 코드를 구현하기 좋다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://doc.rust-lang.org/book/ch01-01-installation.html&quot;&gt;&lt;strong&gt;&lt;em&gt;rust 설치 방법&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;설치 후 명령어로 잘 설치되었는지 version 확인&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rustc &lt;span class=&quot;nt&quot;&gt;--version&lt;/span&gt;
+
+cargo &lt;span class=&quot;nt&quot;&gt;--version&lt;/span&gt;
+
+rustup &lt;span class=&quot;nt&quot;&gt;--version&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Cargo.toml&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;프로젝트의 의존 라이브러리를 명시할 수 있다. 프로젝트의 메타 데이터와 컴파일러 세팅등&lt;/li&gt;
+  &lt;li&gt;npm으로 치자면 package.json 같은 파일&lt;/li&gt;
+  &lt;li&gt;rust에서는 패키지를 crate라 불린다.&lt;/li&gt;
+  &lt;li&gt;dependencies 섹션에 프로젝트에 필요한 크레이트를 나열할 수 있다.&lt;/li&gt;
+  &lt;li&gt;크레이트에 가장 중요한 registry는 &lt;a href=&quot;https://crates.io/&quot;&gt;해당 사이트&lt;/a&gt;에서 확인 가능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;dependencies]
+rand &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;0.8.4&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cargo build&lt;/code&gt; : 프로젝트의 의존 라이브러리를 불러온뒤 컴파일한다 → 바이너리 = 실행파일을 출력한다.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cargo run&lt;/code&gt; : 프로젝트 실행 명령어&lt;/li&gt;
+  &lt;li&gt;컴파일해서 모든 것들을 연결한 다음에 바이너리를 실행한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Finished dev &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;unoptimized + debuginfo] target&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;s&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;0.01s
+     Running &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;target/debug/example&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
+Hello, world!
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;cargo expand&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;a linter form Rust - output을 format해서 출력해준다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 설치 방법&lt;/span&gt;
+cargo &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;cargo-expand
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;default - stable(안정화된 버전)&lt;/li&gt;
+  &lt;li&gt;beta - 안정화 버전을 위한 일종의 후보&lt;/li&gt;
+  &lt;li&gt;nightly - master 브랜치의 최신 빌드 버전(가장 최신이지만 불안정)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rustup toolchain list&lt;/code&gt; - 모든 툴체인 목록을 볼 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;오늘 강의 들은 소감은? 떠오르는 생각을 가볍게 적어보세요&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;컴퓨터 공학 기초가 많이 부족한 것 같다는 생각이 들었다. 포인터나 바이너리 파일 등 C언어 공부할 때 내용이 기억이 잘 안 나서 다시 복습하는 시간을 가졌다.&lt;/li&gt;
+  &lt;li&gt;javascript와 같은 고수준 언어로 코드를 작성할 때는 가비지 컬렉터가 알아서 메모리 관리를 해줘서 딱히 신경쓰지 않았는데 저수준 언어로 프로그램 만들 때 메모리 관리에 신경을 많이 써야한다는 사실을 강의를 통해 알았다. 이번 강의를 들으면 메모리에 대해서 좀 더 심도 있게 공부할 수 있을 것 같아서 기대가 된다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;더 공부한 내용&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;javascript와 어떻게 다른지 알아보기 위해 low level 언어와 high level 언어는 어떻게 다른지에 대해 알아보았다.
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://m.post.naver.com/viewer/postView.nhn?volumeNo=17988573&amp;amp;memberNo=21815&quot;&gt;https://m.post.naver.com/viewer/postView.nhn?volumeNo=17988573&amp;amp;memberNo=21815&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://comb.tistory.com/7&quot;&gt;Rust 메모리 관리와 Ownership&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://kingofbackend.tistory.com/122&quot;&gt;바이너리 파일과 바이트 파일&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
  
  <entry>
    <title>TIL Udemy Javascript Unit Testing - Section3. Testing Basics</title>

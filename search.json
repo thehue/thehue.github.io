@@ -1,6 +1,15 @@
 [
   
     {
+      "title"    : "TIL Udemy Rust 완벽 정복 - 섹션 1. 시작하기",
+      "description" : "Rust Introduction",
+      "category" : "",
+      "tags"     : "Udemy, TIL, javascript, rust",
+      "url"      : "/2023/05/10/til-rust-%EC%99%84%EB%B2%BD-%EC%A0%95%EB%B3%B5-%EC%84%B9%EC%85%98-1-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0",
+      "date"     : "2023-05-10 00:00:00 +0900"
+    } ,
+  
+    {
       "title"    : "TIL Udemy Javascript Unit Testing - Section3. Testing Basics",
       "description" : "Testing Basics",
       "category" : "",
